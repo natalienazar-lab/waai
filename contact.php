@@ -1,7 +1,5 @@
 <?php
 // Contact form handler: validates the POST and emails it to the WAAI inbox.
-// The inbox is hosted at GoDaddy, so mail goes out through their SMTP server
-// (credentials in smtp-config.php, written by the deploy from GitHub secrets).
 header('Content-Type: application/json; charset=utf-8');
 
 const TO = 'info@wisely-applied-ai.com';
@@ -9,27 +7,42 @@ const TO = 'info@wisely-applied-ai.com';
 function fail(int $code, string $msg) { http_response_code($code); echo json_encode(['ok' => false, 'error' => $msg]); exit; }
 function field(string $k, int $max = 500): string { return trim(mb_substr(str_replace(["\r", "\0"], '', (string)($_POST[$k] ?? '')), 0, $max)); }
 
-// Minimal SMTP client: implicit TLS on 465, STARTTLS otherwise, AUTH LOGIN.
-function smtp_send(array $c, string $to, string $subject, string $body, string $replyTo): bool {
-  $port = (int)$c['port'];
-  $host = ($port === 465 ? 'ssl://' : 'tcp://') . $c['host'];
-  $s = @stream_socket_client("$host:$port", $errno, $err, 15);
-  if (!$s) return false;
-  stream_set_timeout($s, 15);
+// Hetzner treats wisely-applied-ai.com as a local domain, so PHP mail() never reaches the real
+// inbox (Microsoft 365, set up through GoDaddy). Instead we hand the message straight to the
+// domain's MX server, the same way any outside mail server would deliver it.
+const FROM = 'webmaster@wisely-applied-ai.com';
+$GLOBALS['smtp_err'] = '';
+
+function mx_send(string $to, string $subject, string $body, string $replyTo): bool {
+  $domain = substr(strrchr($to, '@'), 1);
+  $hosts = []; $weights = [];
+  if (getmxrr($domain, $hosts, $weights)) array_multisort($weights, $hosts); else $hosts = [$domain];
+  foreach ($hosts as $mx) { if (smtp_deliver($mx, $to, $subject, $body, $replyTo)) return true; }
+  return false;
+}
+
+function smtp_deliver(string $mx, string $to, string $subject, string $body, string $replyTo): bool {
+  $s = @stream_socket_client("tcp://$mx:25", $errno, $err, 15);
+  if (!$s) { $GLOBALS['smtp_err'] = "connect $mx: $err"; return false; }
+  stream_set_timeout($s, 20);
   $read = function () use ($s) { $out = ''; while (($l = fgets($s, 1024)) !== false) { $out .= $l; if (strlen($l) < 4 || $l[3] === ' ') break; } return $out; };
-  $cmd = function (string $line, string $expect) use ($s, $read) { fwrite($s, $line . "\r\n"); return strpos($read(), $expect) === 0; };
-  if (strpos($read(), '220') !== 0) return false;
+  $cmd = function (string $line, string $expect) use ($s, $read) {
+    fwrite($s, $line . "\r\n"); $r = $read();
+    if (strpos($r, $expect) !== 0) { $GLOBALS['smtp_err'] = trim(substr($line, 0, 12) . ' -> ' . $r); return false; }
+    return true;
+  };
+  $greet = $read();
+  if (strpos($greet, '220') !== 0) { $GLOBALS['smtp_err'] = 'greeting: ' . trim($greet); return false; }
   if (!$cmd('EHLO wisely-applied-ai.com', '250')) return false;
-  if ($port !== 465) {
-    if (!$cmd('STARTTLS', '220')) return false;
-    if (!stream_socket_enable_crypto($s, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) return false;
+  if ($cmd('STARTTLS', '220')) {
+    if (!stream_socket_enable_crypto($s, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) { $GLOBALS['smtp_err'] = 'tls'; return false; }
     if (!$cmd('EHLO wisely-applied-ai.com', '250')) return false;
   }
-  if (!$cmd('AUTH LOGIN', '334') || !$cmd(base64_encode($c['user']), '334') || !$cmd(base64_encode($c['pass']), '235')) return false;
-  if (!$cmd('MAIL FROM:<' . $c['user'] . '>', '250') || !$cmd("RCPT TO:<$to>", '25') || !$cmd('DATA', '354')) return false;
+  if (!$cmd('MAIL FROM:<' . FROM . '>', '250') || !$cmd("RCPT TO:<$to>", '25') || !$cmd('DATA', '354')) return false;
   $msg = implode("\r\n", [
-    'From: WAAI website <' . $c['user'] . '>', "To: <$to>", "Reply-To: $replyTo", "Subject: $subject",
-    'Date: ' . date('r'), 'MIME-Version: 1.0', 'Content-Type: text/plain; charset=UTF-8', 'Content-Transfer-Encoding: base64', '',
+    'From: WAAI website <' . FROM . '>', "To: <$to>", "Reply-To: $replyTo", "Subject: $subject",
+    'Date: ' . date('r'), 'Message-ID: <' . bin2hex(random_bytes(12)) . '@wisely-applied-ai.com>',
+    'MIME-Version: 1.0', 'Content-Type: text/plain; charset=UTF-8', 'Content-Transfer-Encoding: base64', '',
     chunk_split(base64_encode($body)),
   ]);
   if (!$cmd($msg . "\r\n.", '250')) return false;
@@ -53,8 +66,10 @@ $body = "Name: $name\nEmail: $email\nCompany: " . field('company', 200) . "\nCom
       . "\nInterested in: $interest\n\nMessage:\n" . field('message', 5000) . "\n";
 $subject = '=?UTF-8?B?' . base64_encode("WAAI website: $interest — $name") . '?=';
 
-$cfgFile = __DIR__ . '/smtp-config.php';
-if (!is_file($cfgFile)) fail(500, 'config');
-$cfg = require $cfgFile;
-if (!smtp_send($cfg, TO, $subject, $body, $email)) fail(500, 'mail');
+if (!mx_send(TO, $subject, $body, $email)) {
+  // Fallback: keep the enquiry in the Hetzner webmaster mailbox so no lead is lost.
+  $headers = implode("\r\n", ['From: WAAI website <' . FROM . '>', "Reply-To: $email", 'Content-Type: text/plain; charset=UTF-8']);
+  $note = "[Not delivered to " . TO . ": " . $GLOBALS['smtp_err'] . "]\n\n";
+  if (!mail(FROM, $subject, $note . $body, $headers, '-f' . FROM)) fail(500, 'mail: ' . $GLOBALS['smtp_err']);
+}
 echo json_encode(['ok' => true]);
