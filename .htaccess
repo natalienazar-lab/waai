@@ -1,9 +1,8 @@
 DirectoryIndex index.html index.php
-# Force HTTPS and the bare domain
+# Bare domain (HTTPS redirect is off until the SSL certificate is active)
 RewriteEngine On
-RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteRule ^ https://wisely-applied-ai.com%{REQUEST_URI} [L,R=301]
+RewriteRule ^ http://wisely-applied-ai.com%{REQUEST_URI} [L,R=302]
 
 # Cache static assets, keep HTML fresh
 <IfModule mod_expires.c>
