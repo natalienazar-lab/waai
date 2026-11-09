@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WAAI · Wisely Applied AI</title>
+<meta name="description" content="WAAI (Wisely Applied AI) is an open methodology for organisations where people and AI work together: consulting, training and a maturity assessment.">
+<meta property="og:title" content="WAAI · Wisely Applied AI">
+<meta property="og:description" content="An open methodology for organisations where people and AI work together.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wisely-applied-ai.com/">
+<link rel="canonical" href="https://wisely-applied-ai.com/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=Commissioner:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="WAAI home">
+      <svg width="28" height="28" viewBox="0 0 40 40" aria-hidden="true"><circle cx="15" cy="14" r="11" fill="var(--green)" opacity=".8"/><circle cx="26" cy="26" r="11" fill="var(--blue)" opacity=".8"/><circle cx="13" cy="27" r="9" fill="var(--amber)" opacity=".85"/><circle cx="20" cy="21" r="4.2" fill="var(--core)"/></svg>
+      WAAI
+    </a>
+    <nav class="menu" id="menu" aria-label="Main">
+      <a href="#framework" data-nav="framework" data-i="mFramework">Framework</a>
+      <a href="#programs" data-nav="programs" data-i="mPrograms">Programs</a>
+      <a href="#cases" data-nav="cases" data-i="mCases">Case studies</a>
+      <a href="#blog" data-nav="blog" data-i="mBlog">Blog</a>
+      <a href="#contact" data-nav="contact" data-i="mContact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-uk" aria-pressed="false">UA</button>
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+    </div>
+    <a class="btn btn-primary navcta js-assess" href="#contact" data-i="navAssess">Maturity assessment</a>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<div class="page on" data-page="home">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i="heroEyebrow">WAAI · Wisely Applied AI</span>
+        <h1 data-i="heroTitle">Everyone is buying AI. <em>Few know how to use it.</em></h1>
+        <p class="lede" data-i="heroLede">AI is becoming an everyday tool, the way computers once replaced paper documents. Back then companies needed new rules, new roles and new skills. They need them again now. WAAI helps you build AI into your work so it delivers measurable value instead of just costs.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-amber" href="#contact" data-i="ctaConsult">Book a consultation</a>
+          <a class="btn btn-ghost-dark js-assess" href="#contact" data-i="ctaAssess">Take the maturity assessment</a>
+        </div>
+      </div>
+      <div class="cover">
+        <canvas id="cover" width="1040" height="1040" aria-hidden="true"></canvas>
+        <div class="stage" aria-live="polite"><span class="sl" id="stage-lv">L1</span><b id="stage-nm">Chaos</b><small id="stage-cap">No decision: things just happened.</small></div>
+        <div class="stages" id="stages" role="group" aria-label="Maturity levels"><button type="button" class="on">L1</button><button type="button">L2</button><button type="button">L3</button><button type="button">L4</button><button type="button">L5</button></div>
+      </div>
+    </div>
+    <div class="wrap shift">
+      <div class="shift-card">
+        <span class="t" data-i="eraThenT">Then</span>
+        <div class="shift-vis" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 6h14l6 6v22H10z"/><path d="M14 16h12M14 21h12M14 26h8"/></svg>
+          <svg class="arr" width="34" height="14" viewBox="0 0 34 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7h30M25 1l6 6-6 6"/></svg>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="8" width="30" height="20" rx="2"/><path d="M14 34h12M20 28v6"/></svg>
+        </div>
+        <span class="v" data-i="eraThen">Paper → digital documents. Companies learned new rules and new tools.</span>
+      </div>
+      <div class="shift-card now">
+        <span class="t" data-i="eraNowT">Now</span>
+        <div class="shift-vis" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40"><g fill="currentColor" opacity=".7"><circle cx="8" cy="10" r="2.2"/><circle cx="27" cy="7" r="1.8"/><circle cx="17" cy="19" r="2"/><circle cx="33" cy="22" r="2.2"/><circle cx="9" cy="30" r="1.8"/><circle cx="24" cy="33" r="2"/></g></svg>
+          <svg class="arr" width="34" height="14" viewBox="0 0 34 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7h30M25 1l6 6-6 6"/></svg>
+          <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="var(--core)" opacity=".25"/><circle cx="20" cy="20" r="8" fill="var(--core)"/></svg>
+        </div>
+        <span class="v" data-i="eraNow">Chaotic AI → <b>AI as measurable value.</b> The same shift, and the same need for guidance.</span>
+      </div>
+      <p class="stance2" data-i="heroStance">Replacing people with AI is not a strategy. Making people stronger with AI is.</p>
+    </div>
+  </div>
+
+  <!-- PROBLEMS: chat-style -->
+  <section class="sx">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow" data-i="probEyebrow">Sound familiar?</span>
+        <h2 data-i="probTitle">The AI race has started. Results haven't.</h2>
+      </div>
+      <div class="chat">
+        <div class="pair"><p class="bub" data-i="pain1">We paid for licences, and nobody can show the return.</p><p class="ans"><span class="who">WAAI</span><span data-i="pain1a">We tie every AI initiative to a value you can measure.</span></p></div>
+        <div class="pair"><p class="bub" data-i="pain2">Everyone does something with AI, but I see neither value nor control.</p><p class="ans"><span class="who">WAAI</span><span data-i="pain2a">We set clear roles for who decides, who controls and who supports.</span></p></div>
+        <div class="pair"><p class="bub" data-i="pain3">We banned AI for safety, and now we get nothing from it.</p><p class="ans"><span class="who">WAAI</span><span data-i="pain3a">We show the way out of "safe but useless".</span></p></div>
+        <div class="pair"><p class="bub" data-i="pain4">I don't know where to start, or in what order.</p><p class="ans"><span class="who">WAAI</span><span data-i="pain4a">We give you a step-by-step roadmap from where you are now.</span></p></div>
+      </div>
+      <div class="cta-row center"><a class="btn btn-primary" href="#contact" data-i="ctaTalk">Talk to us</a><span class="note" data-i="ctaTalkNote">A first conversation is free.</span></div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO: roadmap + packages -->
+  <section class="sx tint">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-i="whatEyebrow">What we do</span>
+        <h2 data-i="whatTitle">We consult and teach organisations to apply AI wisely</h2>
+      </div>
+      <ol class="journey">
+        <li><span class="node"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></span><b data-i="r1">Assess</b><span data-i="r1d">Where you are with AI today</span></li>
+        <li><span class="node"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><b data-i="r2">Align</b><span data-i="r2d">Goals, priorities, who owns what</span></li>
+        <li><span class="node"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span><b data-i="r3">Lay the foundation</b><span data-i="r3d">Rules, safe tools, training</span></li>
+        <li><span class="node"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M7.5 15h9"/></svg></span><b data-i="r4">Pilot and measure</b><span data-i="r4d">Prove value task by task</span></li>
+        <li><span class="node last"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2.5"/><path d="M7 6c6 0 6 6 10 6M7 18c6 0 6-6 10-6"/></svg></span><b data-i="r5">Scale into flows</b><span data-i="r5d">End-to-end value, owned by your team</span></li>
+      </ol>
+
+      <div class="tabs" role="tablist" aria-label="Offers">
+        <button type="button" role="tab" id="tab-org" aria-selected="true" aria-controls="pane-org" data-i="pkOrg">For organisations</button>
+        <button type="button" role="tab" id="tab-ind" aria-selected="false" aria-controls="pane-ind" data-i="pkInd">For individuals</button>
+      </div>
+      <div class="offers" id="pane-org" role="tabpanel" aria-labelledby="tab-org">
+        <div class="offer-card g"><span class="oi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span><h3 data-i="pk1">Private consultation</h3><p data-i="pk1d">A session with your leadership: where you are and what to do first.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+        <div class="offer-card b"><span class="oi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l4-4 4 4M7 9h6M7 12h9"/></svg></span><h3 data-i="pk2">Corporate training</h3><p data-i="pk2d">Workshops for leaders and teams on roles, rules and running pilots.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+        <div class="offer-card a"><span class="oi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><h3 data-i="pk3">Guided adoption</h3><p data-i="pk3d">We coach your team through the roadmap until it runs on its own.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+      </div>
+      <div class="offers" id="pane-ind" role="tabpanel" aria-labelledby="tab-ind" hidden>
+        <div class="offer-card b soon"><span class="oi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M10 8.5v5l4.5-2.5z" fill="currentColor"/><path d="M8 21h8"/></svg></span><h3 data-i="pk4">Webinars</h3><p data-i="pk4d">Open sessions introducing WAAI and how to apply it.</p><span class="soon-tag" data-i="soon">Coming soon</span></div>
+        <div class="offer-card g soon"><span class="oi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v6"/></svg></span><h3 data-i="pk5">Practitioner training</h3><p data-i="pk5d">For business analysts, product owners, Agile coaches and AI leads.</p><span class="soon-tag" data-i="soon">Coming soon</span></div>
+        <div class="offer-card a soon"><span class="oi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></svg></span><h3 data-i="pk6">Certification</h3><p data-i="pk6d">Become a certified WAAI practitioner.</p><span class="soon-tag" data-i="soon">Coming soon</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="sx">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow" data-i="teamEyebrow">Who we are</span>
+        <h2 data-i="teamTitle">The three founders of WAAI</h2>
+        <p class="lede" data-i="teamLede">Practitioners in business analysis, product, Agile and AI who built the framework from their own experience of AI adoption.</p>
+      </div>
+      <div class="crew">
+        <div class="mate g"><div class="ph"><img src="assets/img/team/iryna-kriuchkova.webp" alt="Iryna Kriuchkova" loading="lazy" width="560" height="560"></div><h3 data-i="tm1">Iryna Kriuchkova</h3><span data-i="tm1r">Co-founder · Framework architect</span><p class="bio" data-i="tm1b">Over 20 years in business analysis. Helps organisations build AI into how they work, with clear roles, accountability and measurable value.</p><a class="li" href="https://www.linkedin.com/in/irynakriuchkova" target="_blank" rel="noopener" aria-label="Iryna Kriuchkova on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg>LinkedIn</a></div>
+        <div class="mate a"><div class="ph"><img src="assets/img/team/nadiya-trub.webp" alt="Nadiya Trub" loading="lazy" width="560" height="560"></div><h3 data-i="tm2">Nadiya Trub</h3><span data-i="tm2r">Co-founder · Product and delivery</span><p class="bio" data-i="tm2b">Over 15 years as a product owner and analyst in B2B SaaS and healthtech. Turns WAAI into working practices for product and delivery teams.</p><a class="li" href="https://www.linkedin.com/in/nadiyatrub" target="_blank" rel="noopener" aria-label="Nadiya Trub on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg>LinkedIn</a></div>
+        <div class="mate b"><div class="ph"><img src="assets/img/team/nati-nazar.webp" alt="Nati Nazar" loading="lazy" width="560" height="560"></div><h3 data-i="tm3">Nati Nazar</h3><span data-i="tm3r">Co-founder · Strategy and transformation</span><p class="bio" data-i="tm3b">Over 15 years in consulting on strategy and digital transformation. Has built centres of excellence and grows the leaders who carry change through.</p><a class="li" href="https://www.linkedin.com/in/natinazar" target="_blank" rel="noopener" aria-label="Nati Nazar on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg>LinkedIn</a></div>
+      </div>
+      <div class="cta-row center"><a class="btn btn-ghost" href="#contact" data-i="ctaMeet">Meet us</a></div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS: hub diagram on dark -->
+  <section class="sx dark">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow" data-i="compEyebrow">What WAAI includes</span>
+        <h2 data-i="compTitle">Everything you need to apply AI wisely</h2>
+      </div>
+      <div class="hub">
+        <div class="side l">
+          <a class="node2" href="#framework"><span class="ni g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></span><span><b data-i="cp1">Framework</b><small data-i="cp1d">An open operating methodology for organisations where people and AI work together.</small></span></a>
+          <a class="node2" href="#framework"><span class="ni b"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7"/></svg></span><span><b data-i="cp2">Guidelines</b><small data-i="cp2d">Practical rules for choosing where AI fits, how deep to go, and how to keep it safe.</small></span></a>
+          <a class="node2" href="#maturity"><span class="ni a"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 16h3v4M10.5 12h3v8M15 8h3v12"/></svg></span><span><b data-i="cp3">Maturity model</b><small data-i="cp3d">Five levels that measure not how much AI you use, but the quality of your decisions about applying it.</small></span></a>
+        </div>
+        <div class="core" aria-hidden="true"><svg width="74" height="74" viewBox="0 0 40 40"><circle cx="15" cy="14" r="11" fill="#5FC097" opacity=".85"/><circle cx="26" cy="26" r="11" fill="#7FA3EE" opacity=".85"/><circle cx="13" cy="27" r="9" fill="#F0B354" opacity=".9"/><circle cx="20" cy="21" r="4.6" fill="#FFE7A6"/></svg><span>WAAI</span></div>
+        <div class="side r">
+          <a class="node2" href="#roles"><span class="ni g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.5-5 5-5s5 2 5 5M14 19c0-2.4 1.4-4 3-4s3 1.6 3 4"/></svg></span><span><b data-i="cp4">Roles and success metrics</b><small data-i="cp4d">Who decides, who controls, who supports, and how you know it's working.</small></span></a>
+          <a class="node2" href="#manifesto"><span class="ni b"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8-4.3-4.1 5.9-.9z"/></svg></span><span><b data-i="cp5">Manifesto and principles</b><small data-i="cp5d">Six values and the principles that turn them into everyday decisions.</small></span></a>
+          <a class="node2 soon" href="#contact"><span class="ni a"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z"/><path d="M12 6v14"/></svg></span><span><b data-i="cp6">Online course and book</b><small data-i="hc6d">The full WAAI method, to learn at your own pace.</small><em class="soonmark" data-i="soon">Coming soon</em></span></a>
+        </div>
+      </div>
+      <div class="cta-row center"><a class="btn btn-amber" href="#contact" data-i="ctaLearn">Learn WAAI with us</a></div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT: product mock -->
+  <section class="sx">
+    <div class="wrap assess2">
+      <div class="assess-copy">
+        <span class="eyebrow" data-i="asEyebrow">Free maturity assessment</span>
+        <h2 data-i="asTitle">How mature is your company's use of AI?</h2>
+        <p class="lede" data-i="asLede">Answer a short set of questions about how your organisation works with AI today. You get your indicative maturity level and what holds you back from the next one.</p>
+        <div class="facts"><span data-i="as1">5–7 minutes</span><span data-i="as2">9–15 questions</span><span data-i="as3">Free</span></div>
+        <ul class="gets">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg><span data-i="ag1">Your indicative level, from 1 to 5, with a plain explanation</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg><span data-i="ag2">The two or three conditions you're missing for the next level</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg><span data-i="ag3">An option to go deeper with a full diagnostic</span></li>
+        </ul>
+        <div><a class="btn btn-primary js-assess" href="#contact" data-i="asStart">Start the maturity assessment →</a></div>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock-q">
+          <div class="prog"><span data-i="mProg">Question 5 of 9</span><i><b></b></i></div>
+          <p class="mq" data-i="mQ">How do you usually decide where to use AI?</p>
+          <span class="opt" data-i="mA">Everyone tries on their own</span>
+          <span class="opt" data-i="mB">Around a new tool</span>
+          <span class="opt on" data-i="mC">Area heads, using agreed criteria</span>
+        </div>
+        <div class="mock-r">
+          <svg viewBox="0 0 120 68" width="132" height="75">
+            <path d="M10.0 58.0 A50 50 0 0 1 18.4 32.3" stroke="var(--green)" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M20.8 29.0 A50 50 0 0 1 42.7 13.1" stroke="var(--green)" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M46.5 11.9 A50 50 0 0 1 73.5 11.9" stroke="var(--blue)" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M77.3 13.1 A50 50 0 0 1 99.2 29.0" stroke="var(--line)" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M101.6 32.3 A50 50 0 0 1 110.0 58.0" stroke="var(--line)" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <text x="60" y="58" text-anchor="middle" style="font:600 20px var(--f-display);fill:var(--ink)">L3</text>
+          </svg>
+          <div><small data-i="mRes">Your indicative level</small><b data-i="l3">Smart tasks</b><small class="nx" data-i="mNext">Next: 2 conditions to reach L4</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES: venn -->
+  <section class="sx warm">
+    <div class="wrap values2">
+      <div class="venn" aria-hidden="true">
+        <svg viewBox="0 -4 320 304" width="100%">
+          <circle cx="160" cy="105" r="88" fill="var(--green)" opacity=".22"/>
+          <circle cx="108" cy="192" r="88" fill="var(--amber)" opacity=".24"/>
+          <circle cx="212" cy="192" r="88" fill="var(--blue)" opacity=".22"/>
+          <circle cx="160" cy="162" r="30" fill="var(--core)"/>
+          <text x="160" y="166" text-anchor="middle" class="vc" style="fill:#0F1B2B" data-i="svgValue">VALUE</text>
+          <text x="160" y="10" text-anchor="middle" class="vt" style="fill:var(--green)" data-i="svgOrg">SMART ORGANISATION</text>
+          <text x="86" y="292" text-anchor="middle" class="vt" style="fill:var(--amber)" data-i="svgHum">HUMAN STRENGTH</text>
+          <text x="234" y="292" text-anchor="middle" class="vt" style="fill:var(--blue)" data-i="svgShr">SHARED INTELLIGENCE</text>
+        </svg>
+      </div>
+      <div class="vlist">
+        <span class="eyebrow" data-i="valEyebrow">What we believe</span>
+        <h2 data-i="valTitle">Not about AI for its own sake. About the greater value we create together.</h2>
+        <ol>
+          <li class="g"><span>1</span><b data-i="v1">Not more AI. More value you can see.</b></li>
+          <li class="g"><span>2</span><b data-i="v2">Continuous improvement, built into the work.</b></li>
+          <li class="a"><span>3</span><b data-i="v3">People lead, AI acts.</b></li>
+          <li class="a"><span>4</span><b data-i="v4">Growing tomorrow’s experts today.</b></li>
+          <li class="b"><span>5</span><b data-i="v5">Shared context, end to end.</b></li>
+          <li class="b"><span>6</span><b data-i="v6">The best emerges through interaction.</b></li>
+        </ol>
+        <div><a class="btn btn-ghost" href="#manifesto" data-i="ctaManifesto">Read the manifesto</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="sx why2">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow" data-i="whyEyebrow">Why WAAI</span>
+        <h2 data-i="wTitle">People and AI as one whole</h2>
+        <p class="lede" data-i="wLede">WAAI doesn't replace people with AI, and it doesn't bolt AI onto old ways of working. It joins them into augmented intelligence: AI takes on execution, people bring judgement and accountability, and together they achieve more than either could alone.</p>
+      </div>
+      <div class="eq" aria-label="Human plus AI equals augmented intelligence">
+        <div class="eqc hum"><span class="eqi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/></svg></span><b data-i="wHum">Human</b><small data-i="wHumD">judgement, accountability, context</small></div>
+        <span class="op" aria-hidden="true">+</span>
+        <div class="eqc ai"><span class="eqi"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><circle cx="12" cy="12" r="2"/></svg></span><b data-i="wAi">AI</b><small data-i="wAiD">speed, scale, routine</small></div>
+        <span class="op" aria-hidden="true">=</span>
+        <div class="eqc res"><span class="eqi"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="15" cy="14" r="11" fill="#5FC097" opacity=".85"/><circle cx="26" cy="26" r="11" fill="#7FA3EE" opacity=".85"/><circle cx="13" cy="27" r="9" fill="#F0B354" opacity=".9"/><circle cx="20" cy="21" r="4.6" fill="#FFE7A6"/></svg></span><b data-i="wRes">Augmented intelligence</b><small data-i="wResD">measurable value</small></div>
+      </div>
+      <div class="outs">
+        <div class="out"><span class="inst" data-i="wI1">Instead of licences with no return</span><h3 data-i="wO1">AI that pays off</h3><p data-i="wO1d">Every initiative starts with a value hypothesis and a metric, so you can see what AI brings in money and time.</p></div>
+        <div class="out"><span class="inst" data-i="wI2">Instead of shadow AI or total bans</span><h3 data-i="wO2">Control without blocking</h3><p data-i="wO2d">Safe rules and tools are built in from the start, and the official way is easier than the workaround.</p></div>
+        <div class="out"><span class="inst" data-i="wI3">Instead of not knowing where to start</span><h3 data-i="wO3">A clear path and clear owners</h3><p data-i="wO3d">You know the next step, and who decides, controls and supports at each one.</p></div>
+        <div class="out"><span class="inst" data-i="wI4">Instead of fear of being replaced</span><h3 data-i="wO4">Stronger people</h3><p data-i="wO4d">Teams move from routine to judgement, and you keep growing the experts who will oversee AI tomorrow.</p></div>
+      </div>
+      <div class="plus">
+        <span class="plus-l" data-i="wPlus">And on top:</span>
+        <span class="chip" data-i="wP1">Open and vendor-neutral</span>
+        <span class="chip" data-i="wP2">Evolution, not a rebuild: one new body, two new focuses</span>
+        <span class="chip" data-i="wP3">Grows with you, from first rules to built-in maturity</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="band">
+      <div><h2 data-i="bandTitle">Ready to make AI work for you?</h2><p data-i="bandText">Tell us where you are. We'll suggest where to start.</p></div>
+      <a class="btn btn-amber" href="#contact" data-i="ctaConsult">Book a consultation</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FRAMEWORK PAGES ================= -->
+<template id="fw-subnav">
+  <nav class="subnav" aria-label="Framework">
+    <a href="#framework" data-sub="framework" data-i="sOverview">Overview</a>
+    <a href="#manifesto" data-sub="manifesto" data-i="sManifesto">Manifesto</a>
+    <a href="#principles" data-sub="principles" data-i="sPrinciples">Principles</a>
+    <a href="#maturity" data-sub="maturity" data-i="sMaturity">Maturity model</a>
+    <a href="#roles" data-sub="roles" data-i="sRoles">Roles</a>
+  </nav>
+</template>
+
+<div class="page" data-page="framework"><main class="wrap">
+  <div class="phead"><div class="fwnav"></div><span class="eyebrow" data-i="mFramework">Framework</span><h1 data-i="fwTitle">The WAAI framework</h1><p class="lede" data-i="fwLede">WAAI (Wisely Applied AI) is an open methodology for organisations where people and AI work together. It answers three questions: where does AI belong, how deep should it go, and who is responsible?</p></div>
+  <div class="comps pbottom">
+    <a class="comp" href="#manifesto"><h3 data-i="sManifesto">Manifesto</h3><p data-i="fw1">Six values in three blocks: smart organisation, human strength, shared intelligence.</p><span class="more" data-i="more">Learn more →</span></a>
+    <a class="comp" href="#principles"><h3 data-i="sPrinciples">Principles</h3><p data-i="fw2">Twelve principles that turn the values into everyday decisions.</p><span class="more" data-i="more">Learn more →</span></a>
+    <a class="comp" href="#maturity"><h3 data-i="sMaturity">Maturity model</h3><p data-i="fw3">Five levels, from chaos to built-in maturity.</p><span class="more" data-i="more">Learn more →</span></a>
+    <a class="comp" href="#roles"><h3 data-i="sRoles">Roles</h3><p data-i="fw4">Three centres of responsibility and their representatives in each team.</p><span class="more" data-i="more">Learn more →</span></a>
+    <div class="comp soon"><span class="tag" data-i="soon">Coming soon</span><h3 data-i="fw5t">Guidelines and success metrics</h3><p data-i="fw5">Practical templates and metrics, available through our programs first.</p></div>
+    <div class="comp soon"><span class="tag" data-i="soon">Coming soon</span><h3 data-i="cp6">Online course and book</h3><p data-i="fw6">The full method in one place.</p></div>
+  </div>
+</main></div>
+
+<div class="page" data-page="manifesto"><main class="wrap">
+  <div class="phead"><div class="fwnav"></div><span class="eyebrow" data-i="sManifesto">Manifesto</span><h1 data-i="manTitle">Manifesto for organisations that apply AI wisely</h1><p class="pre" data-i="manPre">Becoming an AI-optimal organisation means reaching results faster because you act smarter, not by chasing new technology without a goal or a measure. We evolve the organisation into a network of value flows where people and AI work together, and AI is applied exactly where and as far as it creates measurable value. While others chase the hype and then redo their work, we take the shorter path to real, measurable efficiency, without stopping the business for a single day.</p></div>
+  <div class="vals3 full pbottom">
+    <div class="vgrp org"><h3 data-i="bOrg">Smart organisation</h3><ol>
+      <li><span class="n">01</span><span data-i="v1">Not more AI. More value you can see.</span><span class="d" data-i="v1d">The goal is not maximum AI or the most tools, but a measurable result: savings or revenue you can count and feel. AI is a tool for the organisation’s success, not an end in itself. Each task is automated exactly as far as value, risk, cost and the law justify. This discipline of fit is what makes us faster than those who automate everything.</span></li>
+      <li><span class="n">02</span><span data-i="v2">Continuous improvement, built into the work.</span><span class="d" data-i="v2d">Change is not a one-off project but a built-in mode: the organisation keeps reviewing and improving its value chains without stopping daily work. The improvement cycle lives in the operating fabric itself, so change becomes the norm, not a shock. We build security, reliability and compliance into that change by design, before an incident, not after. And every cycle makes the organisation faster, cheaper and stronger.</span></li></ol></div>
+    <div class="vgrp hum"><h3 data-i="bHum">Human strength</h3><ol>
+      <li><span class="n">03</span><span data-i="v3">People lead, AI acts.</span><span class="d" data-i="v3d">People are neither victims of change nor the link left over after automation: they lead the transformation. People decide what to delegate to AI, set limits and controls, oversee its work and stay accountable for the result. We carry out change together with people, explain honestly what is changing and why, and help everyone find a role where their judgement matters most.</span></li>
+      <li><span class="n">04</span><span data-i="v4">Growing tomorrow’s experts today.</span><span class="d" data-i="v4d">The biggest risk of automation is not lost jobs but a lost path by which masters grow: hand all entry-level work to agents, and tomorrow the organisation may have no specialists able to be accountable for AI. So we deliberately preserve and grow that source now, developing people towards judgement, evaluation and oversight of AI’s work rather than competing with it on execution.</span></li></ol></div>
+    <div class="vgrp shr"><h3 data-i="bShr">Shared intelligence</h3><ol>
+      <li><span class="n">05</span><span data-i="v5">Shared context, end to end.</span><span class="d" data-i="v5d">The value an organisation delivers reaches its recipient through the hands of many people, departments and agents. AI should help keep one context along the whole chain, so information is not lost or distorted at hand-offs. We work in a shared context instead of passing each other fragments, and that is what makes shared intelligence possible.</span></li>
+      <li><span class="n">06</span><span data-i="v6">The best emerges through interaction.</span><span class="d" data-i="v6d">Shared intelligence is not only human + AI but also human + human. Trust, mentoring, hard conversations and joint decisions are born between people; AI amplifies this but does not replace it. The best decisions emerge where the synergy of people and agents gives more than the sum of its parts.</span></li></ol></div>
+  </div>
+</main></div>
+
+<div class="page" data-page="principles"><main class="wrap">
+  <div class="phead"><div class="fwnav"></div><span class="eyebrow" data-i="sPrinciples">Principles</span><h1 data-i="prTitle">Twelve principles</h1><p class="lede" data-i="prLede">The principles turn the manifesto into rules for action. The first three apply to everything.</p></div>
+  <div class="princ pbottom">
+    <div class="pgrp"><h3 data-i="pg1">Conditions for everything</h3><ol>
+      <li data-i="p1">Measurable value before launch.</li><li data-i="p2">Security and compliance by design.</li><li data-i="p3">No data foundation, no AI on the flow.</li></ol></div>
+    <div class="pgrp"><h3 data-i="pg2">Keep pace without losing control</h3><ol start="4">
+      <li data-i="p4">Change is a permanent safe mode, not a project.</li><li data-i="p5">Autonomy is granted step by step, together with control.</li><li data-i="p6">A named person is accountable for every agent flow.</li></ol></div>
+    <div class="pgrp"><h3 data-i="pg3">Automate without losing people</h3><ol start="7">
+      <li data-i="p7">Roles shift towards judgement; they don't disappear.</li><li data-i="p8">Keep control of the path by which experts grow.</li><li data-i="p9">Transform at the speed of conscious adoption.</li></ol></div>
+    <div class="pgrp"><h3 data-i="pg4">Prepare the organisation, not just the technology</h3><ol start="10">
+      <li data-i="p10">AI is part of the workflow, not an add-on.</li><li data-i="p11">The sanctioned path must be easier than the shadow one.</li><li data-i="p12">Value has an owner and an assessor.</li></ol></div>
+  </div>
+</main></div>
+
+<div class="page" data-page="maturity"><main class="wrap">
+  <div class="phead"><div class="fwnav"></div><span class="eyebrow" data-i="sMaturity">Maturity model</span><h1 data-i="matTitle">Maturity is the quality of the decision</h1><p class="lede" data-i="matLede">Two companies can look identical: some work automated, some done by hand. One is at level 1, the other at level 5. The difference is whether a deliberate, recorded decision stands behind it.</p></div>
+  <div class="lvls">
+    <div class="lvl"><span class="code">L1<b data-i="l1">Chaos</b></span><p data-i="ml1">AI is used spontaneously, without control. Risk outweighs benefit.</p><p class="dec" data-i="md1">No decision: things just happened.</p></div>
+    <div class="lvl"><span class="code">L2<b data-i="l2">Control</b></span><p data-i="ml2">A safe foundation: rules, approved tools, data under control, basic AI literacy and a working AI Centre.</p><p class="dec" data-i="md2">Decisions are about what is allowed and safe, not yet what is worthwhile.</p></div>
+    <div class="lvl"><span class="code">L3<b data-i="l3">Smart tasks</b></span><p data-i="ml3">Competence centres have the process and infrastructure to prioritise tasks in their areas and set the right depth of automation for each. The AI Centre supports them with method and technology.</p><p class="dec" data-i="md3">Weighed and recorded, task by task.</p></div>
+    <div class="lvl"><span class="code">L4<b data-i="l4">Smart flows</b></span><p data-i="ml4">The same for whole flows: areas are stitched into an end-to-end flow without losing context, and the team reassesses which tasks to keep, merge or remove.</p><p class="dec" data-i="md4">Weighed for the whole flow, including whether every task is needed.</p></div>
+    <div class="lvl"><span class="code">L5<b data-i="l5">Built-in maturity</b></span><p data-i="ml5">Fit reproduces itself: new flows are designed optimal from the start, and existing ones are continuously reviewed and improved.</p><p class="dec" data-i="md5">Made up front and reviewed regularly.</p></div>
+  </div>
+  <div class="cta-row pbottom"><a class="btn btn-primary js-assess" href="#contact" data-i="asFind">Find your level →</a></div>
+</main></div>
+
+<div class="page" data-page="roles"><main class="wrap">
+  <div class="phead"><div class="fwnav"></div><span class="eyebrow" data-i="sRoles">Roles</span><h1 data-i="cenTitle">One new body. Two new focuses.</h1><p class="lede" data-i="cenLede">WAAI splits AI responsibility three ways. A "centre" is a role, not necessarily a department. In a small company one person can hold more than one.</p></div>
+  <div class="centres">
+    <div class="centre"><span class="tag" data-i="tagFocus1">Existing leadership + new focus</span><h3 data-i="c1">Strategic Centre</h3><p data-i="c1d">Sets direction and how far the transformation should go, funds it, and decides which flows matter most.</p><p class="rep" data-i="c1r">In a flow team: <b>Strategy Owner</b>, accountable for the flow's value.</p></div>
+    <div class="centre"><span class="tag" data-i="tagFocus2">Existing experts + new focus</span><h3 data-i="c2">Competence Centres</h3><p data-i="c2d">Heads of each area decide what to hand to AI in their field, how deep, and which checks stay human.</p><p class="rep" data-i="c2r">In a flow team: <b>Competence Owners</b>, one per area of the flow.</p></div>
+    <div class="centre"><span class="tag new" data-i="tagNew">Genuinely new capability</span><h3 data-i="c3">AI Centre</h3><p data-i="c3d">Owns tools, security, training and shared practices. It teaches experts to lead improvements rather than doing it for them.</p><p class="rep" data-i="c3r">In a flow team: <b>Flow Architect</b>, who keeps context from getting lost between areas.</p></div>
+  </div>
+  <div class="cta-row pbottom"><a class="btn btn-primary" href="#contact" data-i="ctaRoles">Set up roles with us</a></div>
+</main></div>
+
+<!-- ================= PROGRAMS ================= -->
+<div class="page" data-page="programs"><main class="wrap">
+  <div class="phead"><span class="eyebrow" data-i="mPrograms">Programs</span><h1 data-i="prgTitle">Learn and apply WAAI</h1><p class="lede" data-i="prgLede">Formats for companies and for professionals. Every program starts with a short conversation about your goals.</p></div>
+  <div class="pk-wrap" style="margin-top:0">
+    <div class="pk-col org">
+      <span class="eyebrow" data-i="pkOrg">For organisations</span>
+      <div class="pk"><h3 data-i="pk1">Private consultation</h3><p data-i="pk1d">A session with your leadership: where you are and what to do first.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+      <div class="pk"><h3 data-i="pk2">Corporate training</h3><p data-i="pk2d">Workshops for leaders and teams on roles, rules and running pilots.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+      <div class="pk"><h3 data-i="pk3">Guided adoption</h3><p data-i="pk3d">We coach your team through the roadmap until it runs on its own.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+      <div class="pk"><h3 data-i="pk7">In-depth diagnostic</h3><p data-i="pk7d">An assessment of your maturity level based on interviews and facts, with a clear view of what to improve.</p><a class="go" href="#contact" data-i="pkReq">Request</a></div>
+    </div>
+    <div class="pk-col ind">
+      <span class="eyebrow" data-i="pkInd">For individuals</span>
+      <div class="pk"><h3 data-i="pk4">Webinars</h3><p data-i="pk4d">Open sessions introducing WAAI and how to apply it.</p><span class="soon" data-i="soon">Coming soon</span></div>
+      <div class="pk"><h3 data-i="pk5">Practitioner training</h3><p data-i="pk5d">For business analysts, product owners, Agile coaches and AI leads.</p><span class="soon" data-i="soon">Coming soon</span></div>
+      <div class="pk"><h3 data-i="pk6">Certification</h3><p data-i="pk6d">Become a certified WAAI practitioner.</p><span class="soon" data-i="soon">Coming soon</span></div>
+      <div class="pk"><h3 data-i="cp6">Online course and book</h3><p data-i="fw6">The full method in one place.</p><span class="soon" data-i="soon">Coming soon</span></div>
+    </div>
+  </div>
+  <div class="cta-row pbottom"><a class="btn btn-primary" href="#contact" data-i="ctaConsult">Book a consultation</a></div>
+</main></div>
+
+<!-- ================= CASES / BLOG ================= -->
+<div class="page" data-page="cases"><main class="wrap">
+  <div class="phead"><span class="eyebrow" data-i="mCases">Case studies</span><h1 data-i="csTitle">Case studies are on the way</h1></div>
+  <div class="empty"><p data-i="csText">We're working with our first partner companies now. Their stories will appear here. Want your company to be one of them?</p><a class="btn btn-primary" href="#contact" data-i="csCta">Become a design partner</a></div>
+</main></div>
+
+<div class="page" data-page="blog"><main class="wrap">
+  <div class="phead"><span class="eyebrow" data-i="mBlog">Blog</span><h1 data-i="blTitle">Notes on applying AI wisely</h1></div>
+  <div class="empty"><p data-i="blText">Our first articles are coming soon. Leave your email and we'll let you know when they're out.</p><a class="btn btn-primary" href="#contact" data-i="notify2">Notify me</a></div>
+</main></div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" data-page="contact"><main class="wrap">
+  <div class="phead"><span class="eyebrow" data-i="mContact">Contact</span><h1 data-i="conTitle">Let's talk about your AI</h1></div>
+  <div class="contact">
+    <div class="offer">
+      <p class="lede" data-i="conLede" style="margin-bottom:10px">Tell us a little about your company and what you need. We'll reply with a suggested first step.</p>
+      <div><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg><span data-i="o1">A free first conversation</span></div>
+      <div><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg><span data-i="o2">Consultations, training and webinars</span></div>
+      <div><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg><span data-i="o3">Early access to the maturity assessment</span></div>
+    </div>
+    <form id="contact-form" novalidate>
+      <div class="row2">
+        <label for="f-name"><span data-i="fName">Name</span><input id="f-name" name="name" autocomplete="name" required></label>
+        <label for="f-email"><span data-i="fEmail">Work email</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="row2">
+        <label for="f-company"><span data-i="fCompany">Company</span><input id="f-company" name="company" autocomplete="organization"></label>
+        <label for="f-size"><span data-i="fSize">Company size</span><select id="f-size" name="size"><option>1–50</option><option selected>51–250</option><option>251–1000</option><option>1000+</option></select></label>
+      </div>
+      <label for="f-interest"><span data-i="fInterest">I'm interested in</span>
+        <select id="f-interest" name="interest">
+          <option value="consult" data-i="opt1">A private consultation</option>
+          <option value="training" data-i="opt2">Corporate training</option>
+          <option value="webinar" data-i="opt3">Webinars or practitioner training</option>
+          <option value="assess" data-i="opt4">The maturity assessment</option>
+          <option value="partner" data-i="opt5">Becoming a design partner</option>
+          <option value="other" data-i="opt6">Something else</option>
+        </select>
+      </label>
+      <label for="f-msg"><span data-i="fMsg">Where is your organisation with AI today?</span><textarea id="f-msg" name="message"></textarea></label>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit" data-i="fSend">Send</button>
+      <p class="formnote" data-i="fNote">We use your details only to reply to you.</p>
+      <p class="sent" id="f-sent" hidden></p>
+    </form>
+  </div>
+</main></div>
+
+<div class="wrap">
+  <footer class="foot">
+    <div class="ftop">
+      <div class="fbrand"><a class="brand" href="#home"><svg width="22" height="22" viewBox="0 0 40 40" aria-hidden="true"><circle cx="15" cy="14" r="11" fill="var(--green)" opacity=".8"/><circle cx="26" cy="26" r="11" fill="var(--blue)" opacity=".8"/><circle cx="13" cy="27" r="9" fill="var(--amber)" opacity=".85"/><circle cx="20" cy="21" r="4.2" fill="var(--core)"/></svg>WAAI</a><p data-i="footTag">An open methodology for organisations where people and AI work together.</p><div class="soc" aria-label="Social media"><a href="https://www.linkedin.com/company/waai-framework/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.8-1.7-2.8-1.71 0-1.97 1.33-1.97 2.7V21h-4z"/></svg></a></div></div>
+      <div class="fcol"><b data-i="mFramework">Framework</b><a href="#framework" data-i="sOverview">Overview</a><a href="#manifesto" data-i="sManifesto">Manifesto</a><a href="#principles" data-i="sPrinciples">Principles</a><a href="#maturity" data-i="sMaturity">Maturity model</a><a href="#roles" data-i="sRoles">Roles</a></div>
+      <div class="fcol"><b data-i="footCo">WAAI</b><a href="#programs" data-i="mPrograms">Programs</a><a href="#cases" data-i="mCases">Case studies</a><a href="#blog" data-i="mBlog">Blog</a><a href="#contact" data-i="mContact">Contact</a></div>
+      <div class="fcol"><b data-i="footStart">Get started</b><a href="#contact" class="js-assess" data-i="navAssess">Maturity assessment</a><a href="#contact" data-i="ctaConsult">Book a consultation</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 WAAI</span><span data-i="foot1">Wisely Applied AI</span></div>
+  </footer>
+</div>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

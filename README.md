@@ -1,2 +1,28 @@
-# waai
-waai framework website
+# WAAI website
+
+Static site for [wisely-applied-ai.com](https://wisely-applied-ai.com): plain HTML, CSS and JS, no build step. Bilingual (EN/UA), hash-routed pages.
+
+- `index.html` – all pages; texts are marked with `data-i` keys
+- `assets/js/site.js` – Ukrainian texts (`UK` dictionary), routing, language toggle, hero animation, contact form
+- `assets/css/site.css` – styles
+- `contact.php` – emails contact-form requests to info@wisely-applied-ai.com
+- `.htaccess` – HTTPS redirect and caching
+
+## Run locally
+
+```
+php -S localhost:8000
+```
+(or any static server; the form needs PHP to send mail)
+
+## Deploy
+
+Every push to `main` uploads the site to the Hetzner web hosting via FTPS (`.github/workflows/deploy.yml`).
+Set these repository secrets (Settings → Secrets and variables → Actions):
+
+| Secret | Value |
+|---|---|
+| `FTP_SERVER` | FTP host from the Hetzner hosting panel |
+| `FTP_USERNAME` | FTP user |
+| `FTP_PASSWORD` | FTP password |
+| `FTP_DIR` | Folder of the wisely-applied-ai.com addon domain, ending in `/` (e.g. `public_html/wisely-applied-ai.com/`) |
