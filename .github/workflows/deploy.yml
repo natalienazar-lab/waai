@@ -8,9 +8,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
     steps:
+      - name: Skip until FTP secrets are set
+        if: env.FTP_SERVER == ''
+        run: echo "FTP secrets are not set yet, nothing was deployed."
       - uses: actions/checkout@v4
+        if: env.FTP_SERVER != ''
       - name: Upload site over FTPS
+        if: env.FTP_SERVER != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
