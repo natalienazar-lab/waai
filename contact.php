@@ -3,7 +3,7 @@
 header('Content-Type: application/json; charset=utf-8');
 
 const TO = 'info@wisely-applied-ai.com';
-const FROM = 'no-reply@wisely-applied-ai.com';
+const FROM = 'info@wisely-applied-ai.com'; // Hetzner only sends from an existing mailbox
 
 function fail(int $code, string $msg) { http_response_code($code); echo json_encode(['ok' => false, 'error' => $msg]); exit; }
 function field(string $k, int $max = 500): string { return trim(mb_substr(str_replace(["\r", "\0"], '', (string)($_POST[$k] ?? '')), 0, $max)); }
