@@ -1,8 +1,8 @@
 DirectoryIndex index.html index.php
-# Bare domain (HTTPS redirect is off until the SSL certificate is active)
+# Bare domain (HTTPS redirect is switched on in konsoleH)
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteRule ^ http://wisely-applied-ai.com%{REQUEST_URI} [L,R=302]
+RewriteRule ^ https://wisely-applied-ai.com%{REQUEST_URI} [L,R=301]
 
 # Cache static assets, keep HTML fresh
 <IfModule mod_expires.c>
