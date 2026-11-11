@@ -16,6 +16,9 @@ jobs:
         run: echo "FTP secrets are not set yet, nothing was deployed."
       - uses: actions/checkout@v4
         if: env.FTP_SERVER != ''
+      - name: Build Ukrainian page (uk/index.html)
+        if: env.FTP_SERVER != ''
+        run: node scripts/build-uk.js
       - name: Upload site over FTPS
         if: env.FTP_SERVER != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -29,4 +32,5 @@ jobs:
             **/.git*
             **/.git*/**
             .github/**
+            scripts/**
             README.md
