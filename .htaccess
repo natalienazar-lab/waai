@@ -22,6 +22,8 @@ Options -Indexes
 AddCharset utf-8 .txt .xml
 
 # Keep the form handler out of search results
-<Files "contact.php">
-  Header set X-Robots-Tag "noindex"
-</Files>
+<IfModule mod_headers.c>
+  <Files "contact.php">
+    Header set X-Robots-Tag "noindex"
+  </Files>
+</IfModule>
