@@ -17,3 +17,11 @@ RewriteRule ^ https://wisely-applied-ai.com%{REQUEST_URI} [L,R=301]
   AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
 </IfModule>
 Options -Indexes
+
+# Serve llms.txt, robots.txt and sitemap as UTF-8
+AddCharset utf-8 .txt .xml
+
+# Keep the form handler out of search results
+<Files "contact.php">
+  Header set X-Robots-Tag "noindex"
+</Files>
