@@ -1,0 +1,47 @@
+# WAAI · Wisely Applied AI
+
+> WAAI (Wisely Applied AI) is an open methodology, or framework, for organisations where people and AI work together. It answers three questions: where does AI belong, how deep should it go, and who is responsible? The WAAI team offers consulting, corporate training, guided AI adoption and an AI maturity assessment. Ukrainian name: "Мудре застосування ШІ".
+
+Website: https://wisely-applied-ai.com/ (English and Ukrainian)
+LinkedIn: https://www.linkedin.com/company/waai-framework/
+Contact: info@wisely-applied-ai.com or the form at https://wisely-applied-ai.com/#contact
+
+## The problem WAAI addresses
+
+Companies buy AI licences and run pilots, but few can show measurable value. AI is used spontaneously, without rules, roles or accountability. WAAI helps organisations build AI into how they work so it delivers measurable value, and makes people stronger with AI instead of replacing them.
+
+## AI maturity model (five levels)
+
+Maturity is the quality of the decision: whether a deliberate, recorded decision stands behind how each piece of work is done (by AI, by a person, or both).
+
+- L1 Chaos: AI is used spontaneously, without control. Risk outweighs benefit.
+- L2 Control: a safe foundation with rules, approved tools, data under control, basic AI literacy and a working AI Centre.
+- L3 Smart tasks: competence centres prioritise tasks in their areas and set the right depth of automation for each.
+- L4 Smart flows: areas are stitched into end-to-end flows without losing context; the team reassesses which tasks to keep, merge or remove.
+- L5 Built-in maturity: new flows are designed optimal from the start, and existing ones are continuously reviewed.
+
+## Roles: three centres
+
+- Strategic Centre (existing leadership with a new focus): sets direction, funds the transformation, decides which flows matter most. Flow role: Strategy Owner.
+- Competence Centres (existing experts with a new focus): decide what to hand to AI in their field, how deep, and which checks stay human. Flow role: Competence Owner.
+- AI Centre (a genuinely new capability): owns tools, security, training and shared practices, and teaches experts to lead improvements. Flow role: Flow Architect.
+
+A "centre" is a role, not necessarily a department.
+
+## Framework components
+
+- Manifesto: six values for organisations that apply AI wisely.
+- Twelve principles that turn the manifesto into rules for action.
+- Maturity model (L1 to L5) and a quick AI maturity assessment.
+- Roles and responsibilities model (the three centres).
+
+## Programs
+
+For organisations: private consultation with leadership, corporate training for leaders and teams, guided AI adoption (coaching through the roadmap), in-depth maturity diagnostic.
+For individuals (coming soon): webinars, practitioner training for business analysts, product owners, Agile coaches and AI leads, certification, online course and book.
+
+## Founders
+
+- Iryna Kriuchkova, co-founder, framework architect. Over 20 years in business analysis. https://www.linkedin.com/in/irynakriuchkova
+- Nadiya Trub, co-founder, product and delivery. Over 15 years as a product owner and analyst in B2B SaaS and healthtech. https://www.linkedin.com/in/nadiyatrub
+- Nati Nazar, co-founder, strategy and transformation. Over 15 years in consulting on strategy and digital transformation. https://www.linkedin.com/in/natinazar
