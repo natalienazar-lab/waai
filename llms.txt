@@ -2,9 +2,13 @@
 
 > WAAI (Wisely Applied AI) is an open methodology, or framework, for organisations where people and AI work together. It answers three questions: where does AI belong, how deep should it go, and who is responsible? The WAAI team offers consulting, corporate training, guided AI adoption and an AI maturity assessment. Ukrainian name: "Мудре застосування ШІ".
 
-Website: https://wisely-applied-ai.com/ (English and Ukrainian)
+Website: https://wisely-applied-ai.com/ (English), https://wisely-applied-ai.com/uk/ (Ukrainian)
 LinkedIn: https://www.linkedin.com/company/waai-framework/
 Contact: info@wisely-applied-ai.com or the form at https://wisely-applied-ai.com/#contact
+
+## Українською
+
+WAAI (Wisely Applied AI, «мудре застосування ШІ») — відкрита методологія для організацій, де люди й ШІ працюють разом. Команда WAAI консультує керівництво, проводить корпоративне навчання з ШІ, супроводжує впровадження ШІ в компанії та проводить діагностику зрілості ШІ за моделлю з п'яти рівнів (L1 Хаос, L2 Контроль, L3 Розумні задачі, L4 Розумні процеси, L5 Вбудована зрілість). Сайт українською: https://wisely-applied-ai.com/uk/
 
 ## The problem WAAI addresses
 

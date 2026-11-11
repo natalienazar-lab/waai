@@ -179,8 +179,15 @@ function setLang(l){
   try { localStorage.setItem("waai-lang", l); } catch(e) {}
   if (window.coverLabel) window.coverLabel();
 }
-document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
-document.getElementById("lang-uk").addEventListener("click", () => setLang("uk"));
+/* Each language has its own URL (/ and /uk/) so search engines can index both */
+const IS_UK_PAGE = document.documentElement.lang === "uk";
+function goLang(l){
+  try { localStorage.setItem("waai-lang", l); } catch(e) {}
+  if ((l === "uk") === IS_UK_PAGE) return;
+  location.href = (l === "uk" ? "/uk/" : "/") + location.hash;
+}
+document.getElementById("lang-en").addEventListener("click", () => goLang("en"));
+document.getElementById("lang-uk").addEventListener("click", () => goLang("uk"));
 document.getElementById("burger").addEventListener("click", e => {
   const open = document.getElementById("menu").classList.toggle("open");
   e.currentTarget.setAttribute("aria-expanded", String(open));
@@ -196,7 +203,7 @@ document.getElementById("contact-form").addEventListener("submit", async e => {
   if (!name || !/\S+@\S+\.\S+/.test(email)) { out.textContent = uk ? "Вкажіть ім'я та робочу пошту." : "Add your name and a valid work email."; return; }
   btn.disabled = true;
   try {
-    const r = await fetch("contact.php", {method:"POST", body:new FormData(f), headers:{"Accept":"application/json"}});
+    const r = await fetch("/contact.php", {method:"POST", body:new FormData(f), headers:{"Accept":"application/json"}});
     const j = await r.json().catch(() => ({}));
     if (!r.ok || !j.ok) throw new Error();
     f.reset();
@@ -292,5 +299,6 @@ document.getElementById("contact-form").addEventListener("submit", async e => {
 })();
 
 let saved = null; try { saved = localStorage.getItem("waai-lang"); } catch(e) {}
-if (saved === "uk") setLang("uk");
+if (IS_UK_PAGE) setLang("uk");
+else if (saved === "uk") { location.replace("/uk/" + location.hash); }
 route();
