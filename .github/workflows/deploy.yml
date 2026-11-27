@@ -19,6 +19,12 @@ jobs:
       - name: Build Ukrainian page (uk/index.html)
         if: env.FTP_SERVER != ''
         run: node scripts/build-uk.js
+      - name: Write server config for the assessment (from secrets, never committed)
+        if: env.FTP_SERVER != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ASSESSMENT_SHEET_URL: ${{ secrets.ASSESSMENT_SHEET_URL }}
+        run: php -r 'file_put_contents("inc/config.php", "<?php\nreturn " . var_export(["anthropic_key" => getenv("ANTHROPIC_API_KEY") ?: "", "sheet_url" => getenv("ASSESSMENT_SHEET_URL") ?: ""], true) . ";\n");'
       - name: Upload site over FTPS
         if: env.FTP_SERVER != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

@@ -73,6 +73,7 @@ html = html.replace('<button type="button" id="lang-en" aria-pressed="true">', '
 
 // 4. The page lives one folder down: make local links root-relative
 html = html.replace(/(\s(?:src|href))="(assets\/|contact\.php)/g, '$1="/$2');
+html = html.split('href="/assessment/"').join('href="/assessment/?lang=uk"');
 
 // 5. Team photo alt text in Ukrainian
 for (const k of ["tm1", "tm2", "tm3"]) {
