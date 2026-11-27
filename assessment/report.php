@@ -55,9 +55,18 @@ $report = $tx['level'] . ": L$lv · $levelName\n\n"
 $enc = fn($s) => '=?UTF-8?B?' . base64_encode($s) . '?=';
 
 if ($action === 'send') {
-  $ok = mx_send($email, $enc($tx['subj']), $tx['hi'] . "\n\n" . $report . "\n\n" . $tx['next'] . "\n", ASSESS_TEAM);
-  if (!$ok) error_log('WAAI assessment report not delivered to respondent: ' . $GLOBALS['smtp_err']);
-  json_out($ok ? 200 : 502, ['ok' => $ok]);
+  $body = $tx['hi'] . "\n\n" . $report . "\n\n" . $tx['next'] . "\n";
+  $ok = mx_send($email, $enc($tx['subj']), $body, ASSESS_TEAM);
+  $detail = $ok ? '' : 'mx: ' . $GLOBALS['smtp_err'];
+  if (!$ok) {
+    // Direct delivery refused (e.g. by Gmail): hand the message to the hosting's own mail server instead.
+    $headers = implode("\r\n", ['From: WAAI <' . FROM . '>', 'Reply-To: ' . ASSESS_TEAM, 'MIME-Version: 1.0',
+      'Content-Type: text/plain; charset=UTF-8', 'Content-Transfer-Encoding: base64']);
+    $ok = mail($email, $enc($tx['subj']), chunk_split(base64_encode($body)), $headers, '-f' . FROM);
+    if (!$ok) $detail .= ' | mail() failed';
+  }
+  if ($detail !== '') error_log('WAAI assessment report to respondent: ' . $detail . ($ok ? ' (sent via mail())' : ''));
+  json_out($ok ? 200 : 502, ['ok' => $ok, 'via' => $detail === '' ? 'mx' : 'local', 'detail' => substr($detail, 0, 300)]);
 }
 
 // Team copy: info@ mailbox (fallback webmaster@) and the Google Sheet
