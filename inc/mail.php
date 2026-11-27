@@ -6,15 +6,32 @@
 const FROM = 'webmaster@wisely-applied-ai.com';
 $GLOBALS['smtp_err'] = '';
 
-function mx_send(string $to, string $subject, string $body, string $replyTo): bool {
+// Text-only, or multipart/alternative (plain text + HTML) when $html is given. Returns [Content-Type header, body].
+function mime_parts(string $text, string $html = ''): array {
+  if ($html === '') return ['Content-Type: text/plain; charset=UTF-8' . "\r\n" . 'Content-Transfer-Encoding: base64', chunk_split(base64_encode($text))];
+  $b = 'waai_' . bin2hex(random_bytes(8));
+  $body = "--$b\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($text))
+        . "--$b\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($html))
+        . "--$b--\r\n";
+  return ["Content-Type: multipart/alternative; boundary=\"$b\"", $body];
+}
+
+// Through the hosting's own mail server (used when direct delivery is refused, e.g. Hetzner blocks port 25 to Gmail)
+function local_send(string $to, string $subject, string $text, string $html, string $replyTo): bool {
+  [$ctype, $body] = mime_parts($text, $html);
+  $headers = 'From: ' . ($GLOBALS['mail_from_name'] ?? 'WAAI website') . ' <' . FROM . ">\r\nReply-To: $replyTo\r\nMIME-Version: 1.0\r\n" . $ctype;
+  return mail($to, $subject, $body, $headers, '-f' . FROM);
+}
+
+function mx_send(string $to, string $subject, string $body, string $replyTo, string $html = ''): bool {
   $domain = substr(strrchr($to, '@'), 1);
   $hosts = []; $weights = [];
   if (getmxrr($domain, $hosts, $weights)) array_multisort($weights, $hosts); else $hosts = [$domain];
-  foreach ($hosts as $mx) { if (smtp_deliver($mx, $to, $subject, $body, $replyTo)) return true; }
+  foreach ($hosts as $mx) { if (smtp_deliver($mx, $to, $subject, $body, $replyTo, $html)) return true; }
   return false;
 }
 
-function smtp_deliver(string $mx, string $to, string $subject, string $body, string $replyTo): bool {
+function smtp_deliver(string $mx, string $to, string $subject, string $body, string $replyTo, string $html = ''): bool {
   $s = @stream_socket_client("tcp://$mx:25", $errno, $err, 15);
   if (!$s) { $GLOBALS['smtp_err'] = "connect $mx: $err"; return false; }
   stream_set_timeout($s, 20);
@@ -32,11 +49,11 @@ function smtp_deliver(string $mx, string $to, string $subject, string $body, str
     if (!$cmd('EHLO wisely-applied-ai.com', '250')) return false;
   }
   if (!$cmd('MAIL FROM:<' . FROM . '>', '250') || !$cmd("RCPT TO:<$to>", '25') || !$cmd('DATA', '354')) return false;
+  [$ctype, $mimeBody] = mime_parts($body, $html);
   $msg = implode("\r\n", [
     'From: ' . ($GLOBALS['mail_from_name'] ?? 'WAAI website') . ' <' . FROM . '>', "To: <$to>", "Reply-To: $replyTo", "Subject: $subject",
     'Date: ' . date('r'), 'Message-ID: <' . bin2hex(random_bytes(12)) . '@wisely-applied-ai.com>',
-    'MIME-Version: 1.0', 'Content-Type: text/plain; charset=UTF-8', 'Content-Transfer-Encoding: base64', '',
-    chunk_split(base64_encode($body)),
+    'MIME-Version: 1.0', $ctype, '', $mimeBody,
   ]);
   if (!$cmd($msg . "\r\n.", '250')) return false;
   $cmd('QUIT', '221');
