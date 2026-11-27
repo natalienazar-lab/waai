@@ -216,8 +216,6 @@ document.querySelectorAll(".xbar .xall").forEach(btn => btn.addEventListener("cl
   btn.setAttribute("aria-pressed", String(open));
   btn.closest("main").querySelectorAll(".xgroup details").forEach(d => { d.open = open; });
 }));
-/* Until the assessment exists, its buttons open the contact form with "assessment" preselected */
-document.querySelectorAll(".js-assess").forEach(a => a.addEventListener("click", () => { document.getElementById("f-interest").value = "assess"; }));
 
 document.getElementById("contact-form").addEventListener("submit", async e => {
   e.preventDefault();
