@@ -20,7 +20,9 @@ $comment = clip($in['comment'] ?? '', 3000);
 if ($ans === null || $name === '' || $company === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($in['consent'])) {
   json_out(422, ['ok' => false, 'error' => 'invalid']);
 }
-rate_limit($action, $action === 'send' ? 5 : 10);
+// Per visitor: generous, so a team testing from one office is not blocked. Per recipient: stops mail bombing one address.
+rate_limit($action, $action === 'send' ? 20 : 30);
+if ($action === 'send') rate_limit('send_to', 5, 3600, strtolower($email));
 
 $d = assess_data();
 $lv = level_of($ans);

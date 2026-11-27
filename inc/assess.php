@@ -80,9 +80,10 @@ function gaps_of(array $ans, int $lv, string $lang): array {
 }
 
 // Simple per-IP limit, stored in the system temp folder
-function rate_limit(string $bucket, int $max, int $window = 3600) {
-  $ip = $_SERVER['REMOTE_ADDR'] ?? 'x';
-  $f = sys_get_temp_dir() . '/waai_' . $bucket . '_' . substr(hash('sha256', $ip . __DIR__), 0, 24);
+// $key defaults to the visitor's IP; pass e.g. the recipient address to limit per recipient instead.
+function rate_limit(string $bucket, int $max, int $window = 3600, ?string $key = null) {
+  $key = $key ?? ($_SERVER['REMOTE_ADDR'] ?? 'x');
+  $f = sys_get_temp_dir() . '/waai_' . $bucket . '_' . substr(hash('sha256', $key . __DIR__), 0, 24);
   $now = time();
   $hits = array_filter(array_map('intval', @file($f, FILE_IGNORE_NEW_LINES) ?: []), fn($t) => $t > $now - $window);
   if (count($hits) >= $max) json_out(429, ['ok' => false, 'error' => 'limit']);
