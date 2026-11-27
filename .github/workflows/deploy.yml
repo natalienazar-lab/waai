@@ -24,7 +24,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ASSESSMENT_SHEET_URL: ${{ secrets.ASSESSMENT_SHEET_URL }}
-        run: php -r 'file_put_contents("inc/config.php", "<?php\nreturn " . var_export(["anthropic_key" => getenv("ANTHROPIC_API_KEY") ?: "", "sheet_url" => getenv("ASSESSMENT_SHEET_URL") ?: ""], true) . ";\n");'
+        run: |
+          php -r 'file_put_contents("inc/config.php", "<?php\nreturn " . var_export(["anthropic_key" => getenv("ANTHROPIC_API_KEY") ?: "", "sheet_url" => getenv("ASSESSMENT_SHEET_URL") ?: ""], true) . ";\n");'
       - name: Upload site over FTPS
         if: env.FTP_SERVER != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
