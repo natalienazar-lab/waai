@@ -63,6 +63,7 @@ const T={
 "comp": "Компанія",
 "again": "Пройти ще раз",
 "ctaNote": "Обговорімо ваш результат і перші кроки на 30-хвилинному дзвінку.",
+"sendLimit": "Звіт на цю адресу вже надсилали кілька разів за останню годину. Спробуйте пізніше або напишіть нам на info@wisely-applied-ai.com.",
 "sendErr": "Не вдалося надіслати лист. Спробуйте ще раз або напишіть нам на info@wisely-applied-ai.com.",
 "home": "Головна",
 "sending": "Надсилаю…"
@@ -123,6 +124,7 @@ const T={
 "comp": "Company",
 "again": "Start again",
 "ctaNote": "Let's go through your result and first steps on a 30-minute call.",
+"sendLimit": "The report has already been sent to this address several times in the last hour. Please try again later or write to info@wisely-applied-ai.com.",
 "sendErr": "We couldn't send the email. Please try again or write to info@wisely-applied-ai.com.",
 "home": "Home",
 "sending": "Sending…"
@@ -308,6 +310,7 @@ async function sendReport(e){
   btn.disabled = true; msg.hidden = false; msg.className = "ok"; msg.textContent = t("sending");
   try {
     const r = await fetch("report.php", { method: "POST", headers: { "content-type": "application/json" }, body: payload("send", lang) });
+    if (r.status === 429) { btn.disabled = false; msg.className = "err"; msg.textContent = t("sendLimit"); return; }
     const j = await r.json();
     if (!j.ok) throw new Error("send");
     reportSent = true; msg.textContent = t("sent");
